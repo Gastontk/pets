@@ -1,0 +1,12 @@
+<h1>Pets#new</h1>
+<p>Find me in app/views/pets/new.html.erb</p>
+
+
+<h1>Add your pet here!</h1>
+
+
+<%= form_for @pet do |t| %>
+	Name: <%= t.text_field :name %> <br>
+	Breed: <%= t.text_field :breed %> <br>
+	<%= t.submit %>
+<% end %>

@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<h1>User info:</h1>
+<table class ='info_table'>
+	<tr>
+		<th>Firstname</th>
+		<th>Lastname</th>
+		<th>Email</th>
+		<th>something else</th>
+	</tr>
+	<tr>
+		<th><%= @user.first_name %></th>
+		<th><%= @user.last_name %></th>
+		<th><%= @user.email %></th>
+		<th><%=link_to 'Adopt',
+			:controller =>"users",
+			:action => 'adopt',
+			:method => :patch %></th>
+	</tr>
+
+
+</table>
+
+<br> <br> <br>
+
+
+<table style="border:solid;">
+	<tr>
+		<th>Name</th>
+
+		<th>Breed</th>
+		<th>Abandon</th>
+	</tr>
+
+
+
+
+
+
+<% if @owner_pet.exists? %>
+
+		<% @owner_pet.each do |p| %>
+			<tr>
+				<td><%=link_to p.name, pet_path(p) %></td>
+				<td><%=p.breed%></td>
+				<td><%=link_to "Ditch 'em", abandon_pet_path(p) %></td>
+			</tr>
+		<% end %>
+<% else %>
+	<tr>
+		<td>None</td>
+		<td>Owned</td>
+	</tr>
+
+<% end %>
+
+
+
+</table>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

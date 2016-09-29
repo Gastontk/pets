@@ -1,0 +1,35 @@
+<h1>Pets#show</h1>
+<p>Find me in app/views/pets/show.html.erb</p>
+
+
+<h1>Here's your pet's info:</h1>
+
+--------- <br>
+Name: <%= @pet.name %> <br>
+Breed: <%= @pet.breed %> <br>
+--------- <br>
+
+
+<% if @pet.user %>
+	Yup, he's owned by: <%= link_to @pet.user.first_name, @pet.user %>
+<% else %>
+	<%= @pet.name %> isn't owned by anyone. We don't like strays. Perhaps you'd like to <%= link_to 'Adopt',
+																							:controller =>"users",
+																							:action => 'adopt',
+																							:method => :patch,
+																							:pet_id => @pet.id,
+																							:owner_id =>  6
+																									%>
+<% end %>
+
+<%= link_to "Edit Pet", edit_pet_path(@pet) %>
+
+
+
+
+
+
+<%= form_for(@pet, url: '/adopt', method: :patch) do |t| %>
+	<% t.text_field :name %>
+	<%=t.submit %>
+<% end %> 

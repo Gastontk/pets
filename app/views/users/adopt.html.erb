@@ -1,0 +1,19 @@
+<h1>Users#adopt</h1>
+
+
+<h3>could be adopted by a number of different people. Please choose one: </h3>
+
+<% users_array = User.all.map { |user| [user.first_name, user.id] } %>
+<% pets_array = Pet.all.map { |pet| [pet.name, pet.id] } %>
+
+<% users_array %>
+
+
+<% @pet = Pet.new %>
+<%= form_for @pet, url: '/finish_adoption' do |t|%>
+	<%=t.select :user, users_array %>
+	Would like to adopt
+	<%= t.select :id, pets_array %> 
+
+	<%= t.submit "adopt" %>
+<% end %>
