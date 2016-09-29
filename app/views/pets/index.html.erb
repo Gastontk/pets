@@ -15,7 +15,7 @@
 	<tr>
 		 <td><%= link_to t.name, pet_path(t) %></td>
 		 <td><%= link_to t.breed, "http://www.google.com/search?ie=UTF-8&q=#{t.breed}" %></td>
-		 <td><%= link_to "edit", edit_pet_path(t.id) %></td>
+		 <td><%= link_to "edit", edit_pet_path(t.id) %>| <%= link_to "Euthanise", pets_destroy_path(t.id) %></td>
 		 <td><% if t.user%>
 		 			yes
 		 		<%else %>
@@ -24,7 +24,7 @@
 		 <td><%if t.user %>
 		 		<%=t.user.first_name %>
 			 <% else %>
-				:()
+				:(
 			<% end %>
 		 	</td>
 

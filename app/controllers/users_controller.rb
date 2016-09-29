@@ -103,7 +103,8 @@ class UsersController < ApplicationController
 
   end
   def danger
-    
+    # render plain: params
+
   end
 
   private
