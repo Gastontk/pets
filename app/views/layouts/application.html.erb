@@ -6,12 +6,12 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body background='/assets/background.jpg'>
 
 <%= yield %>
 <br>
 <br>
-<%= link_to 'New Pet', new_pet_path %>|<%= link_to 'New Owner', new_user_path %>
+<%= link_to 'New Pet', new_pet_path %> | <%= link_to 'New Owner', new_user_path %> | <%=link_to "Show Pets", pets_path %> | <%= link_to "Show Users", users_path %>
 
 </body>
 </html>

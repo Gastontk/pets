@@ -71,8 +71,12 @@ class UsersController < ApplicationController
   end
 
   def adopt
+    # @user = User.new
     # render plain: params
     @pet = Pet.find_by_id(params[:pet_id])
+    @user = User.find_by_id(params[:format])
+    # render plain: @user.first_name
+
     # render plain: @pet.name
     # redirect_to 'users/finish_adoption'
     # redirect_to '/finish_adoption'

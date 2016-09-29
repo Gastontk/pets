@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   resources :pets
   resources :users
-  root 'users#new'
+  root 'pets#index'
 
   get '/adopt' => 'users#adopt'
   put '/adopt' => 'users#adopt'

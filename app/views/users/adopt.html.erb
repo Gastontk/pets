@@ -1,7 +1,11 @@
-<h1>Users#adopt</h1>
 
+<% if @pet %>
+	<h3><%= @pet.name %> could be adopted by a number of different people. Please choose one: </h3>
+<% elsif @user %>
 
-<h3>could be adopted by a number of different people. Please choose one: </h3>
+	<h3><%= @user.first_name %> can adopt any number of pets. Please choose one:</h3>
+
+<% end %>
 
 <% users_array = User.all.map { |user| [user.first_name, user.id] } %>
 <% pets_array = Pet.all.map { |pet| [pet.name, pet.id] } %>
